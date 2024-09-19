@@ -28,6 +28,7 @@ const authenticate = asyncHandler(async (req, res, next) => {
 
 
 // user models have no isAdmin field that why l removed this code
+
 // const authorizeAdmin = (req, res, next) => {
 //   if (req.user && req.user.isAdmin) {
 //     next();
