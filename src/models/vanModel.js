@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const vanSchema = new mongoose.Schema({
   van_id: { type: String, required: true },
@@ -9,8 +9,12 @@ const vanSchema = new mongoose.Schema({
   pricePerDay: { type: Number, required: true },
   description: { type: String, required: true },
   available: { type: Boolean, default: true },
-  reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
-  ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'Host', required: true },
+  reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" }],
+  ownerId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Host",
+    required: true,
+  },
 });
 
-export default mongoose.model('Van', vanSchema);
+export default mongoose.model("Van", vanSchema);
