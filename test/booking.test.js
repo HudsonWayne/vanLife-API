@@ -1,25 +1,32 @@
+const request = require("supertest");
 const express = require("express");
-const router = express.Router();
+const bookingRouter = require("../routes/bookingRoutes.js"); // Adjust the path as necessary
 
-let bookings = [];
+const app = express();
+app.use(express.json());
+app.use("/api", bookingRouter);
 
-router.post("/bookingRoutes", (req, res) => {
-  const { carId, userId, startDate, endDate } = req.body;
+describe("Booking API", () => {
+  it("should create a new booking", async () => {
+    const res = await request(app).post("/api/book").send({
+      carId: "123",
+      userId: "456",
+      startDate: "2024-09-21",
+      endDate: "2024-09-25",
+    });
 
-  // Basic validation
-  if (!carId || !userId || !startDate || !endDate) {
-    return res.status(400).json({ message: "All fields are required" });
-  }
+    expect(res.status).toBe(201);
+    expect(res.body).toHaveProperty("bookingId");
+    expect(res.body.carId).toBe("123");
+  });
 
-  const newBooking = {
-    carId,
-    userId,
-    startDate,
-    endDate,
-    bookingId: bookings.length + 1,
-  };
-  bookings.push(newBooking);
-  return res.status(201).json(newBooking);
+  it("should return 400 if fields are missing", async () => {
+    const res = await request(app).post("/api/book").send({
+      carId: "123", // Missing userId, startDate, and endDate
+    });
+
+    expect(res.status).toBe(400);
+    expect(res.body.message).toBe("All fields are required");
+  });
 });
 
-module.exports = router;
