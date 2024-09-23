@@ -1,5 +1,5 @@
 import express from "express";
- import {getAllBookings,getBookingById,createBooking,updateBooking,deleteBooking} from "../controllers/bookingController"
+ import {getAllBookings,getBookingById,createBooking,updateBooking,deleteBooking} from "../../src/controllers/bookingController"
 
 const router = express.Router();
 router.get('/bookings', getAllBookings);

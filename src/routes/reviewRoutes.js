@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import {deleteReview,updateReview,getAllReviews,getReviewById,createReview} from "../controllers/reviewController"
+import {deleteReview,updateReview,getAllReviews,getReviewById,createReview} from "../../src/controllers/reviewController"
 
 router.get("/reviews", getAllReviews);
 router.get("/reviews/:id", getReviewById);
