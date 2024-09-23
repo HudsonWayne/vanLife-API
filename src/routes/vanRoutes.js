@@ -1,5 +1,5 @@
 import express from 'express';
-import {getAllVans,updateVan,createVan,getVanById,deleteVan}from "../controllers/vanController"
+import {getAllVans,updateVan,createVan,getVanById,deleteVan}from "../../src/controllers/vanController"
 
 const router =express.Router()
 
