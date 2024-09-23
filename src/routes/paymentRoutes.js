@@ -1,13 +1,13 @@
 import express from "express";
+import {getAllPayments,getPaymentById,createPayment,deletePayment,updatePayment }from "../controllers/paymentController"
 
-const router = express.Router();
+const router = express.Router
 
+router.get("/payments", getAllPayments);
+router.get("/payments/:id", getPaymentById);
+router.post("/payments", createPayment);
+router.put("/payments/:id", updatePayment);
+router.delete("/payments/:id", deletePayment);
 
-router.get("/getAllPayments");
-router.post("/createPayment");
-router.put("/updatePayment");
-router.get("/getAllPayments");
-router.get("/getAllPayments");
-router.get("/getAllPayments");
 
 export default router;
