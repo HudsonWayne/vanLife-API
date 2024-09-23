@@ -1,8 +1,19 @@
 import jwt from "jsonwebtoken";
 import User from "./../models/userModel.js";
-import asyncHandler from "./errorMiddleware";
+
 
 //check if the user is authenticated or not
+
+
+
+const asyncHandler = (fn) => (req, res, next) => {
+  Promise.resolve(fn(req, res, next)).catch((error) => {
+    res.status(500).json({ message: error.message });
+  });
+};
+
+
+
 
 const authenticate = asyncHandler(async (req, res, next) => {
   let token;

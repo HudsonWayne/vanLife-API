@@ -1,7 +1,6 @@
-const asyncHandler = (fn) => (req, res, next) => {
-  Promise.resolve(fn(req, res, next)).catch((error) => {
-    res.status(500).json({ message: error.message });
-  });
-};
+const errorHandler = (error, req,res,next)=>{
+  res.status(404).json({ msg: 'error page not found' });
+}
 
-export default asyncHandler;
+
+export default errorHandler
