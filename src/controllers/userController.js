@@ -1,5 +1,5 @@
 import express from 'express';
-import User from '../models/user.js'; // Adjust the path and file extension if necessary
+import User from '../models/userControllers.js'; // Adjust the path and file extension if necessary
 
 const router = express.Router();
 

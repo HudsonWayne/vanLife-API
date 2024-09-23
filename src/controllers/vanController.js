@@ -1,5 +1,5 @@
 import express from 'express';
-import Van from '../models/van.js'; // Adjust the path and file extension if necessary
+import Van from '../models/vanControllers.js'; // Adjust the path and file extension if necessary
 
 const router = express.Router();
 

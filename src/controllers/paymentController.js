@@ -1,5 +1,5 @@
 import express from 'express';
-import Payment from '../models/payment.js'; // Adjust the path and file extension if necessary
+import Payment from '../models/paymentControllers.js'; // Adjust the path and file extension if necessary
 
 const router = express.Router();
 

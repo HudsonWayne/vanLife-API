@@ -1,5 +1,5 @@
 import express from 'express';
-import Booking from '../models/booking.js'; // Adjust the path and file extension if necessary
+import Booking from '../models/bookingControllers.js'; // Adjust the path and file extension if necessary
 
 const router = express.Router();
 
