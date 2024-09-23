@@ -1,7 +1,3 @@
-
-
-
-
 import mongoose from "mongoose";
 
 const vanSchema = new mongoose.Schema({

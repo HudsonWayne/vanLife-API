@@ -15,7 +15,7 @@ const reviewSchema = new mongoose.Schema({
     recommendation: { type: Boolean, required: true },
   },
   review_source: String,
-  // review_source: String,
+  
 });
 
 export default mongoose.model("Review", reviewSchema);
