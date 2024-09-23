@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "description": "",
+<<<<<<< HEAD
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
@@ -20,6 +21,14 @@
     "mongoose": "^8.6.3",
     "multer": "^1.4.5-lts.1",
     "jest": "^29.7.0",
+=======
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "chai": "^5.1.1",
+    "chai-http": "^5.0.0",
+    "jest": "^29.7.0",
+    "mocha": "^10.7.3",
+>>>>>>> 1f081714d3d1b85f87730cd005ec9fe4ea4e35a6
     "supertest": "^7.0.0"
   }
 }
