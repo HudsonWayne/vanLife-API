@@ -1,32 +1,38 @@
-const request = require("supertest");
-const express = require("express");
-const bookingRouter = require("../routes/bookingRoutes.js"); // Adjust the path as necessary
+import request from 'supertest';
+import express from 'express';
+import mongoose from 'mongoose';
+import bookingRoutes from '../src/routes/bookingRoutes.js'; // Adjust the path if necessary
 
 const app = express();
 app.use(express.json());
-app.use("/api", bookingRouter);
+app.use(bookingRoutes);
 
-describe("Booking API", () => {
-  it("should create a new booking", async () => {
-    const res = await request(app).post("/api/book").send({
-      carId: "123",
-      userId: "456",
-      startDate: "2024-09-21",
-      endDate: "2024-09-25",
-    });
-
-    expect(res.status).toBe(201);
-    expect(res.body).toHaveProperty("bookingId");
-    expect(res.body.carId).toBe("123");
-  });
-
-  it("should return 400 if fields are missing", async () => {
-    const res = await request(app).post("/api/book").send({
-      carId: "123", // Missing userId, startDate, and endDate
-    });
-
-    expect(res.status).toBe(400);
-    expect(res.body.message).toBe("All fields are required");
+// Connect to a test database
+beforeAll(async () => {
+  await mongoose.connect('mongodb://localhost:27017/test_db', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   });
 });
 
+// Clean up the database after each test
+afterEach(async () => {
+  await mongoose.connection.db.dropDatabase();
+});
+
+// Close the database connection after all tests
+afterAll(async () => {
+  await mongoose.connection.close();
+});
+
+describe("updateBooking function", () => {
+  it("should return 404 when updating a non-existent booking", async () => {
+    const nonExistentId = "vincent"; // Non-existent booking ID
+    const response = await request(app)
+      .put(`/bookings/${nonExistentId}`)
+      .send({ title: "Updated Booking" });
+
+    expect(response.status).toBe(404);
+    expect(response.body).toEqual({ message: "Booking not found" });
+  });
+});
