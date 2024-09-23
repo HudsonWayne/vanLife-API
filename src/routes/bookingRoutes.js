@@ -5,8 +5,6 @@ i
 
 const router = express.Router();
 
-
-
 router.get('/bookings', getAllBookings);
 router.get('/bookings/:id', getBookingById);
 router.post('/bookings', createBooking);
