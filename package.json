@@ -2,7 +2,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
-    "mongoose": "^8.6.2"
+    "mongoose": "^8.6.3"
   },
   "name": "vanlife-api",
   "version": "1.0.0",
