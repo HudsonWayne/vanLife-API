@@ -1,7 +1,7 @@
 import request from 'supertest';
 import express from 'express';
 import mongoose from 'mongoose';
-import bookingRoutes from '../src/routes/bookingRoutes.js'; // Adjust the path if necessary
+import bookingRoutes from '../routes/bookingRoutes.js'; // Adjust the path if necessary
 
 const app = express();
 app.use(express.json());
