@@ -1,6 +1,6 @@
 
 import mongoose from "mongoose";
-// import mongoose from "mongoose";
+
 
 const hostSchema = new mongoose.Schema({
   user_id: { type: String, required: true },
@@ -11,3 +11,5 @@ const hostSchema = new mongoose.Schema({
 });
 
 export default mongoose.model("Host", hostSchema);
+
+
